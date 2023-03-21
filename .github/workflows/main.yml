@@ -79,8 +79,9 @@ jobs:
       env:
           TAG_NAME: Dart-SDK
           RELEASE_TIME: ${{ steps.date.outputs.date }}
-    - name: Release SDK
-      uses: ncipollo/release-action@v1
+    - name: Release SDK  
+    - uses: actions/checkout@v2
+    - uses: ncipollo/release-action@v1
       with:
         artifacts: "dart-sdk/sdk/out/*.zip"
         tag: Dart-SDK-${{ steps.date.outputs.date }}
